@@ -44,6 +44,8 @@ Associativity and precedence are respected during parsing.
   - **Backtracking** to check if a formula is satisfiable (`SAT`)
   - **Exhaustive checking** to determine if a formula is always true (`TAUT`)
 
+ - **My own Parser and Tokens**: Defined in `MyToken.hs` and `MyParser.hs` it is uses the same thing but i did it myself
+
 ---
 
 ### How to Use
