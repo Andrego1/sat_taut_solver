@@ -57,6 +57,7 @@ Associativity and precedence are respected during parsing.
 3. Choose whether to test for `SAT` or `TAUT`, by typing `1` or `2` respectivly
 4. Enter expressions, one per line
 5. Type `return` to go back to the main menu
+6. And you can exit the program by typing `exit`
 
 Note: you could also use a file like `test.txt` with the command:
 ```bash 
@@ -89,3 +90,6 @@ b: True
 a || !a ----- SAT
 
 a: True
+return
+Test if SAT (1) or TAUT (2)? (type "1" or "2")
+exit
