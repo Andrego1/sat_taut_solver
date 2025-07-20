@@ -96,7 +96,7 @@ main = do
         readExpressionsLoop answer
     else if answer == "exit" then do exitSuccess
     else do
-        putStrLn "Invalid option. Please type \"1\" or \"2\"."
+        putStrLn "Invalid option. Please type \"1\" or \"2\" or \"exit\"."
         main
 
 
