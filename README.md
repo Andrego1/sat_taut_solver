@@ -48,13 +48,20 @@ Associativity and precedence are respected during parsing.
 
 ### How to Use
 
-1. Compile the project using `ghc -o Main Main.hs`
-2. Run the executable `Main`
-3. Choose whether to test for `SAT` or `TAUT`
-4. Enter expressions one per line
+1. Compile the project using:
+   ```bash
+   ghc -o Main Main.hs
+2. Run the executable:
+   ```bash
+   ./Main
+3. Choose whether to test for `SAT` or `TAUT`, by typing `1` or `2` respectivly
+4. Enter expressions, one per line
 5. Type `return` to go back to the main menu
 
-Note: you could also use a file like `test.txt` with the command `./Main < test.txt`  
+Note: you could also use a file like `test.txt` with the command:
+```bash 
+./Main < test.txt
+```
 
 ---
 
