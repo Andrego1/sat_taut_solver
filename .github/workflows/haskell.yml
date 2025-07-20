@@ -32,4 +32,12 @@ jobs:
 
     - name: Run test.txt test
       run: |
-        ./Main < test.txt
+        ./Main < test.txt > t.txt
+
+    - name: Run Main_my_stuff
+      run: | 
+        ./Main_my_stuff < test.txt > t2.txt
+
+    - name: Run compare t and t2 test
+      run: | 
+        diff t.txt t2.txt
