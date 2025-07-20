@@ -24,8 +24,8 @@ jobs:
 
     - name: Run SAT test
       run: |
-        echo -e '1\na || !a\nreturn' | ./Main
+        echo -e '1\na || !a\nreturn\nexit' | ./Main
 
     - name: Run TAUT test
       run: |
-        echo -e '2\na || !a\nreturn' | ./Main
+        echo -e '2\na || !a\nreturn\nexit' | ./Main

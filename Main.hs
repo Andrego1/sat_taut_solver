@@ -4,6 +4,7 @@ import Parser
 import Lexer
 import Data.Map as Map
 import Data.List
+import System.Exit (exitSuccess)
 
 -- Env type is a map that stores the value of every variable
 type Env = Map String Bool
@@ -87,12 +88,13 @@ readExpressionsLoop flag = do
 -- main function
 main :: IO ()
 main = do
-    putStrLn "Test if SAT (1) or TAUT (2)? (type \"1\" or \"2\")"
+    putStrLn "Test if SAT (1) or TAUT (2)? (type \"1\" or \"2\" or \"exit\")"
     answer <- getLine
     if answer == "1" || answer == "2"
     then do
         putStrLn "Type expressions one per line. Type \"return\" to go back to main menu."
         readExpressionsLoop answer
+    else if answer == "exit" then do exitSuccess
     else do
         putStrLn "Invalid option. Please type \"1\" or \"2\"."
         main
