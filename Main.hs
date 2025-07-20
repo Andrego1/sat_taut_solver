@@ -1,10 +1,12 @@
 module Main where
 
-import Parser
-import Lexer
+import Parser -- comment if my own parser is used
+import Lexer -- comment if my own tokens is used
 import Data.Map as Map
 import Data.List
 import System.Exit (exitSuccess)
+--import MyTokens -- uncommet for my own tokens
+--import MyParser -- uncommet for my own parser
 
 -- Env type is a map that stores the value of every variable
 type Env = Map String Bool
@@ -66,8 +68,12 @@ readExpressionsLoop flag = do
     if line == "return"
     then main
     else do
-        let tokens = alexScanTokens line
-        let ast = parse tokens
+        let tokens = alexScanTokens line -- comment if my own tokens
+        --let tokens = mytokenizer line -- if my own tokens
+        --print tokens
+        let ast = parse tokens -- comment if my own parser
+        --let ast = myParser tokens -- if my own pareser
+        --print ast
         let vals = vars ast
 
         case flag of

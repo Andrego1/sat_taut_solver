@@ -1,0 +1,212 @@
+Test if SAT (1) or TAUT (2)? (type "1" or "2" or "exit")
+Type expressions one per line. Type "return" to go back to main menu.
+a -> b ----- SAT
+
+a: True
+b: True
+
+a <-> b ----- SAT
+
+a: True
+b: True
+
+a && b ----- SAT
+
+a: True
+b: True
+
+a || !a ----- SAT
+
+a: True
+
+a && !a ----- Not SAT
+
+a && (b || !b) ----- SAT
+
+a: True
+b: True
+
+(a || b) && (!a || c) && (!b || !c) ----- SAT
+
+a: True
+b: False
+c: True
+
+x && y && !x ----- Not SAT
+
+x || (y && z) ----- SAT
+
+x: True
+y: True
+z: True
+
+!(a && b) || c ----- SAT
+
+a: True
+b: True
+c: True
+
+a || b || c ----- SAT
+
+a: True
+b: True
+c: True
+
+!(a || b) && (!a || !b) ----- SAT
+
+a: False
+b: False
+
+(a || b) && (!a || c) && (!b || !c) ----- SAT
+
+a: True
+b: False
+c: True
+
+(a && b) || (!a && !b) ----- SAT
+
+a: True
+b: True
+
+(a || b || c) && (!a || !b || !c) ----- SAT
+
+a: True
+b: True
+c: False
+
+(a && b && c) || (!a && !b && !c) ----- SAT
+
+a: True
+b: True
+c: True
+
+((a || b) && (c || d)) || (!a && !b) ----- SAT
+
+a: True
+b: True
+c: True
+d: True
+
+a && (b || (c && (d || e))) ----- SAT
+
+a: True
+b: True
+c: True
+d: True
+e: True
+
+(a && !a) || (b && !b) ----- Not SAT
+
+!((a || b) && (!a || !b)) || (a && b) ----- SAT
+
+a: True
+b: True
+
+((x1 || x2 || x3) && (!x1 || !x2) && (!x2 || !x3) && (!x1 || !x3)) ----- SAT
+
+x1: True
+x2: False
+x3: False
+
+(p || q || r) && (!p || !q) && (!q || !r) && (!p || !r) ----- SAT
+
+p: True
+q: False
+r: False
+
+a && b && c && !a ----- Not SAT
+
+(a || (b && (c || (!d && e)))) ----- SAT
+
+a: True
+b: True
+c: True
+d: True
+e: True
+
+((a && b) || (!c && !d)) && (e || !f) ----- SAT
+
+a: True
+b: True
+c: True
+d: True
+e: True
+f: True
+
+((a || b) && (!a || !b)) && (c || d) ----- SAT
+
+a: True
+b: False
+c: True
+d: True
+
+!((a || b) && (!a && !b)) ----- SAT
+
+a: True
+b: True
+
+(a -> b) && (b -> c) <-> a -> c ----- SAT
+
+a: True
+b: True
+c: True
+
+Test if SAT (1) or TAUT (2)? (type "1" or "2" or "exit")
+Type expressions one per line. Type "return" to go back to main menu.
+a -> b ----- Not TAUT
+
+a <-> b ----- Not TAUT
+
+a && b ----- Not TAUT
+
+a || !a ----- TAUT
+
+a && !a ----- Not TAUT
+
+a && (b || !b) ----- Not TAUT
+
+(a || b) && (!a || c) && (!b || !c) ----- Not TAUT
+
+x && y && !x ----- Not TAUT
+
+x || (y && z) ----- Not TAUT
+
+!(a && b) || c ----- Not TAUT
+
+a || b || c ----- Not TAUT
+
+!(a || b) && (!a || !b) ----- Not TAUT
+
+(a || b) && (!a || c) && (!b || !c) ----- Not TAUT
+
+(a && b) || (!a && !b) ----- Not TAUT
+
+(a || b || c) && (!a || !b || !c) ----- Not TAUT
+
+(a && b && c) || (!a && !b && !c) ----- Not TAUT
+
+((a || b) && (c || d)) || (!a && !b) ----- Not TAUT
+
+a && (b || (c && (d || e))) ----- Not TAUT
+
+(a && !a) || (b && !b) ----- Not TAUT
+
+!((a || b) && (!a || !b)) || (a && b) ----- Not TAUT
+
+((x1 || x2 || x3) && (!x1 || !x2) && (!x2 || !x3) && (!x1 || !x3)) ----- Not TAUT
+
+(p || q || r) && (!p || !q) && (!q || !r) && (!p || !r) ----- Not TAUT
+
+a && b && c && !a ----- Not TAUT
+
+(a || (b && (c || (!d && e)))) ----- Not TAUT
+
+((a && b) || (!c && !d)) && (e || !f) ----- Not TAUT
+
+((a || b) && (!a || !b)) && (c || d) ----- Not TAUT
+
+!((a || b) && (!a && !b)) ----- TAUT
+
+(a -> b) && (b -> c) <-> a -> c ----- Not TAUT
+
+Test if SAT (1) or TAUT (2)? (type "1" or "2" or "exit")
