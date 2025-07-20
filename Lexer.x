@@ -4,7 +4,7 @@ module Lexer where
 
 %wrapper "basic" 
 
-$alpha = [_a-zA-Z] -- char
+$alpha = [a-zA-Z] -- char
 $digit = 0-9
 
 tokens :-

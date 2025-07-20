@@ -18,26 +18,39 @@ var     {VAR $$}
 "->"    {IMP}
 "<->"   {BIC}
 
-%left "<->" -- not certain about this
-%right "->"  -- not certain about this
+{-
+%left "<->" 
+%right "->"  
 %left "||"
 %left "&&"
 %right "!"
+-}
 
 %%
 
--- NOTE: i used precedence to solve shift/reduce conflit, BUT i would like to solve this without it
+-- NOTE: this grammar does not need the rules
+
+Exp     : Exp "<->" Implies     { Bic $1 $3 }
+        | Implies               { $1 }
+
+Implies : Or "->" Implies       { Imp $1 $3 }
+        | Or                    { $1 }
+
+Or      : Or "||" And           { Or $1 $3 }
+        | And                   { $1 }
+
+And     : And "&&" Not          { And $1 $3 }
+        | Not                   { $1 }
+
+Not     : "!" Atom              { Neg $2 }
+        | Atom                  { $1 }
+
+Atom    : var                   { Var $1 }
+        | "(" Exp ")"           { $2 }
+
 {-
-Exp     : Term              { $1 }
-        | Exp "||" Term     { Or $1 $3 }
 
-Term    : Factor            { $1 }
-        | Term "&&" Factor  { And $1 $3}
-
-Factor  : var               { Var $1 }
-        | "!" Exp           { Neg $2 }
-        | "(" Exp ")"       { $2 }
--}
+-- NOTE: with the grammar bellow i used precedence to solve shift/reduce conflit
 
 Exp     : Exp "<->" Exp     { Bic $1 $3}
         | Exp "->" Exp      { Imp $1 $3}
@@ -46,23 +59,8 @@ Exp     : Exp "<->" Exp     { Bic $1 $3}
         | "(" Exp ")"       { $2 }
         | "!" Exp           { Neg $2 }
         | var               { Var $1 }
-{
-    
-{-
-data Exp 
-        = Term Term
-        | Or Exp Term
-        deriving (Show)
-data Term 
-        = Factor Factor
-        | And Term Factor
-        deriving (Show)
-data Factor
-        = Var String
-        | Neg Exp
-        -- | Paren Exp -- i dont think is necessary....
-        deriving (Show)
 -}
+{
 
 data Exp 
         = Bic Exp Exp
